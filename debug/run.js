@@ -3,6 +3,12 @@ const {
   StepType
 } = require('../app/packages/api-types')
 
+const {
+  guessChromePath
+} = require('../app/packages/pteer-base/guessChromePath')
+
+console.log(`Chrome path`, guessChromePath())
+
 const { executeScenario } = require('../app/executeScenario')
 const { createPuppeteerInstance } =  require('../app/main/createPuppeteerInstance')
 
@@ -35,7 +41,7 @@ const run = async () => {
     true,
     x => console.log('dispatch', x),
     puppeteerInstance,
-    () => Promise.resolve('/Applications/Google Chrome.app'),
+    () => Promise.resolve(guessChromePath()),
     {
       log: (...args) =>console.log(...args)
     }
