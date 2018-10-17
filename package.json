@@ -31,7 +31,6 @@
     "publish": {
       "provider": "github",
       "owner": "testless",
-      "token": "XXXXX",
       "vPrefixedTagName": true,
       "releaseType": "release",
       "private": false
@@ -75,8 +74,8 @@
   "scripts": {
     "build": "echo 'Please run \"yarn build:all\"'",
     "build:all": "electron-builder -mwl --x64 --ia32",
-    "build:win": "electron-builder -w --x64",
-    "build:mac": "yarn dist && rm -rf build && electron-builder -m --x64 --publish=always",
+    "build:win": "yarn dist && electron-builder -w --x64",
+    "build:mac": "yarn dist && electron-builder -m --x64 --publish=always",
     "dist": "tsc --pretty && node_modules/.bin/webpack-cli",
     "dist:dep": "cd ../.. && lerna yarn dist",
     "dist:watch": "tsc -w --pretty --preserveWatchOutput",
