@@ -31,7 +31,6 @@
     "publish": {
       "provider": "github",
       "owner": "testless",
-      "token": "XXXXX",
       "vPrefixedTagName": true,
       "releaseType": "release",
       "private": false
