@@ -1,0 +1,32 @@
+{
+  "extends": ["tslint:recommended", "tslint-config-prettier", "tslint-react", "tslint-config-standard", "tslint-no-circular-imports"],
+  "linterOptions": {
+    "exclude": [
+      "config/**/*.js",
+      "node_modules/**/*.ts",
+      "dist/**/*",
+      "src/support/**/*"
+    ]
+  },
+  "rules": {
+    "no-console": [false, "log", "warn"],
+    "no-unused-variable": [true, "", "warn"],
+    "member-ordering": [
+      true,
+      {
+        "order": [
+          "public-static-field",
+          "private-static-field",
+          "public-instance-field",
+          "private-instance-field",
+          "public-constructor",
+          "private-constructor",
+          "public-instance-method",
+          "protected-instance-method",
+          "private-instance-method"
+        ]
+      }
+    ]
+  },
+  "defaultSeverity": "warning"
+}

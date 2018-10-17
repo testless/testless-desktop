@@ -1,0 +1,99 @@
+{
+  "author": {
+    "name": "testless",
+    "email": "info@marcpalm.de"
+  },
+  "build": {
+    "appId": "com.electron.testless",
+    "copyright": "Copyright 2018 testless GmbH",
+    "productName": "testless",
+    "electronVersion": "1.8.4",
+    "directories": {
+      "output": "build"
+    },
+    "mac": {
+      "category": "public.app-category.developer-tools"
+    },
+    "win": {
+      "target": [
+        "nsis"
+      ]
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ]
+    },
+    "files": [
+      "app"
+    ],
+    "publish": {
+      "provider": "github",
+      "owner": "testless",
+      "token": "1ef158a152d7364c019d5cfd0e32f06b9967c909",
+      "vPrefixedTagName": true,
+      "releaseType": "release",
+      "private": false
+    }
+  },
+  "dependencies": {
+    "electron-devtools-installer": "^2.2.3",
+    "electron-store": "^2.0.0",
+    "electron-window-state-manager": "^0.3.2",
+    "puppeteer": "^1.6.0",
+    "winston": "^3.0.0"
+  },
+  "description": "testless desktop app",
+  "devDependencies": {
+    "@types/node": "^10.1.3",
+    "@types/winston": "^2.3.9",
+    "asar": "^0.14.3",
+    "electron": "1.8.4",
+    "electron-builder": "20.22.1",
+    "electron-devtools-installer": "^2.2.3",
+    "electron-toolkit": "^1.0.24",
+    "jest": "22.4.2",
+    "jest-silent-reporter": "^0.0.5",
+    "popper.js": "^1.14.3",
+    "ts-jest": "22.0.1",
+    "ts-loader": "^4.3.0",
+    "tslint": "^5.10.0",
+    "tslint-config-prettier": "^1.13.0",
+    "tslint-config-standard": "^7.0.0",
+    "typescript": "^2.9.2",
+    "@medv/finder": "^1.0.1",
+    "webpack": "^4.8.2",
+    "webpack-cli": "^3.0.8",
+    "chrome-launcher": "^0.10.2"
+  },
+  "homepage": "https://www.testless.com",
+  "license": "UNLICENSED",
+  "main": "./app/main/index.js",
+  "name": "@packages/electro",
+  "repository": "https://github.com/testless/desktop.git",
+  "scripts": {
+    "build": "echo 'Please run \"yarn build:all\"'",
+    "build:all": "electron-builder -mwl --x64 --ia32",
+    "build:win": "electron-builder -w --x64",
+    "build:mac": "yarn dist && rm -rf build && electron-builder -m --x64 --publish=always",
+    "dist": "tsc --pretty && node_modules/.bin/webpack-cli",
+    "dist:dep": "cd ../.. && lerna yarn dist",
+    "dist:watch": "tsc -w --pretty --preserveWatchOutput",
+    "electron-toolkit": "electron ./node_modules/electron-toolkit",
+    "extract:mac": "rm -rf app-asar && asar extract 'build/mac/testless.app/Contents/Resources/app.asar' app-asar",
+    "install:mac": "brew install wine --without-x11 && brew install mono && brew install gnu-tar graphicsmagick xz && brew install rpm",
+    "killit": "lsof -i tcp:3000 | awk 'NR!=1 {print $2}' | xargs kill -9",
+    "lint": "tslint --project '.' -t stylish --force",
+    "open:mac": "open 'build/mac/testless.app/Contents/MacOS/testless'",
+    "postinstall": "electron-builder install-app-deps",
+    "start": "yarn dist && NODE_ENV=development ELECTRON_START_URL=http://localhost:3040 electron ./app/main/index.js",
+    "start:local": "yarn dist && ELECTRON_START_URL=http://localhost:3040 electron ./app/main/index.js",
+    "start:live:debug": "yarn dist && NODE_ENV=development electron ./app/main/index.js",
+    "start:live": "yarn dist && electron ./app/main/index.js",
+    "test": "echo 'No unit tests are currently available'",
+    "pack": "electon-builder --dir",
+    "debug": "node debug/run.js"
+  },
+  "version": "1.0.4"
+}

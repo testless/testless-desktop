@@ -1,0 +1,5 @@
+    "@packages/api-types": "*",
+    "@packages/preload": "*",
+    "@packages/pteer-base": "*",
+    "@packages/testcases": "*",
+    "@packages/webapp": "*",

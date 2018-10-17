@@ -1,0 +1,11 @@
+{
+  "git.ignoreLimitWarning": true,
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
+  "typescript.extension.sortImports.omitSemicolon": true,
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "standard.enable": false,
+  "terminal.integrated.fontFamily": "Source Code Pro for Powerline",
+  "tslint.autoFixOnSave": true,
+  "tslint.enable": true
+}

@@ -1,0 +1,7 @@
+app
+node_modules
+dist
+extract
+app-asar
+build
+**.log
