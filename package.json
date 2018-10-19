@@ -27,14 +27,7 @@
     },
     "files": [
       "app"
-    ],
-    "publish": {
-      "provider": "github",
-      "owner": "testless",
-      "vPrefixedTagName": true,
-      "releaseType": "release",
-      "private": false
-    }
+    ]
   },
   "dependencies": {
     "electron-devtools-installer": "^2.2.3",
