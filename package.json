@@ -68,7 +68,7 @@
     "build": "echo 'Please run \"yarn build:all\"'",
     "build:all": "electron-builder -mwl --x64 --ia32",
     "build:win": "yarn dist && electron-builder -w --x64 --publish=always",
-    "build:mac": "echo $GH_TOKEN && yarn dist && electron-builder -m --x64 --publish=always",
+    "build:mac": "yarn dist && electron-builder -m --x64 --publish=always",
     "dist": "tsc --pretty && node_modules/.bin/webpack-cli",
     "dist:dep": "cd ../.. && lerna yarn dist",
     "dist:watch": "tsc -w --pretty --preserveWatchOutput",
