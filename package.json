@@ -94,5 +94,5 @@
     "pack": "electon-builder --dir",
     "debug": "node debug/run.js"
   },
-  "version": "1.0.4"
+  "version": "1.0.5"
 }

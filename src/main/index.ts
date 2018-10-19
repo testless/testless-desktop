@@ -1,3 +1,5 @@
+import * as path from 'path'
+
 import {
   app,
   BrowserWindow,
@@ -39,11 +41,12 @@ class Session {
       y: this.mainWindowState.y
     })
 
-    this.startURL = this.isDevMode ? process.env.ELECTRON_START_URL || 'https://www.testless.com' : 'https://www.testless.com'
+    const localURL = `file://${path.join(__dirname, `../../public/index.html`)}`
+    this.startURL = this.isDevMode ? process.env.ELECTRON_START_URL || localURL : localURL
 
     Logger.info(`Starting "${this.startURL}"`)
 
-    this.mainWindow.loadURL(this.startURL)
+    this.mainWindow.loadURL(localURL)
 
     if (this.isDevMode) {
       Logger.info(`This is development mode`)
